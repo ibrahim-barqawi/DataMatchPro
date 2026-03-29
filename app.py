@@ -31,6 +31,22 @@ def main():
     )
 
     # Read selected sheet
+   def read_excel_with_sheet_selector(uploaded_file, label):
+    import streamlit as st
+    import pandas as pd
+
+    # Get all sheet names
+    excel_file = pd.ExcelFile(uploaded_file)
+    sheets = excel_file.sheet_names
+
+    # Let user select sheet
+    selected_sheet = st.selectbox(
+        f"Select sheet for {label}",
+        sheets,
+        key=f"{label}_sheet"
+    )
+
+    # Read selected sheet
     df = pd.read_excel(uploaded_file, sheet_name=selected_sheet)
     df.columns = df.columns.astype(str).str.strip()
 
