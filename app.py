@@ -298,5 +298,5 @@ def main():
         elif files and len(files) < 2:
             st.warning("Please upload at least 2 files.")
 
-
+st.image("logo.png", width=150)
 main()
