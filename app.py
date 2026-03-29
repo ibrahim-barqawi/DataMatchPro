@@ -10,7 +10,7 @@ def main():
 
     st.set_page_config(
         page_title="DataMatch Pro",
-        page_icon=t.image("logo.png", width=150),
+        page_icon= "logo.png",
         layout="wide"
     )
     st.image("logo.png", width=150)
