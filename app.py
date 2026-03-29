@@ -8,7 +8,7 @@ import pandas as pd
 def main():
     import streamlit as st
 
-    st.set_page_config(
+    st.set_page_config(st.image("logo.png", width=150)
         page_title="DataMatch Pro",
         page_icon="📊",
         layout="wide"
@@ -298,5 +298,5 @@ def main():
         elif files and len(files) < 2:
             st.warning("Please upload at least 2 files.")
 
-st.image("logo.png", width=150)
+
 main()
