@@ -8,11 +8,12 @@ import pandas as pd
 def main():
     import streamlit as st
 
-    st.set_page_config(st.image("logo.png", width=150)
+    st.set_page_config(
         page_title="DataMatch Pro",
         page_icon="📊",
         layout="wide"
     )
+    st.image("logo.png", width=150)
 
     def read_excel_file(uploaded_file) -> pd.DataFrame:
         df = pd.read_excel(uploaded_file)
