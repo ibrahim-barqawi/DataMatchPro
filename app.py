@@ -299,13 +299,4 @@ def main():
             st.warning("Please upload at least 2 files.")
 
 
-if __name__ == "__main__":
-    # Helpful message if user runs with python app.py instead of streamlit run app.py
-    if any("streamlit" in arg.lower() for arg in sys.argv):
-        main()
-    else:
-        print(
-            '\nThis is a Streamlit web app.\n\n'
-            'Run it from Command Prompt using:\n'
-            'py -3.13 -m streamlit run "app.py"\n'
-        )
+main()
