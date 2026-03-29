@@ -13,7 +13,7 @@ def main():
         page_icon= "logo.png",
         layout="wide"
     )
-    st.image("logo.png", width=150)
+    st.image("logo.png", width=250)
 
     def read_excel_file(uploaded_file) -> pd.DataFrame:
         df = pd.read_excel(uploaded_file)
