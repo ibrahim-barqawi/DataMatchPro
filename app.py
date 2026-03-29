@@ -15,10 +15,26 @@ def main():
     )
     st.image("logo.png", width=250)
 
-    def read_excel_file(uploaded_file) -> pd.DataFrame:
-        df = pd.read_excel(uploaded_file)
-        df.columns = df.columns.astype(str).str.strip()
-        return df
+    def read_excel_with_sheet_selector(uploaded_file, label):
+    import streamlit as st
+    import pandas as pd
+
+    # Get all sheet names
+    excel_file = pd.ExcelFile(uploaded_file)
+    sheets = excel_file.sheet_names
+
+    # Let user select sheet
+    selected_sheet = st.selectbox(
+        f"Select sheet for {label}",
+        sheets,
+        key=f"{label}_sheet"
+    )
+
+    # Read selected sheet
+    df = pd.read_excel(uploaded_file, sheet_name=selected_sheet)
+    df.columns = df.columns.astype(str).str.strip()
+
+    return df
 
     def clean_for_match(series: pd.Series) -> pd.Series:
         return (
@@ -194,7 +210,10 @@ def main():
 
         if files and len(files) >= 2:
             try:
-                dfs = [read_excel_file(f) for f in files]
+                dfs = []
+                for i, f in enumerate(files):
+                    df = read_excel_with_sheet_selector(f, f"File {i+1}")
+                    dfs.append(df)
 
                 common_cols = set(dfs[0].columns)
                 union_cols = set(dfs[0].columns)
