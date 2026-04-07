@@ -22,9 +22,9 @@ st.set_page_config(
 def show_logo():
     logo_path = Path("logo.png")
     if logo_path.exists():
-        col1, col2 = st.columns([3, 7])
+        col1, col2 = st.columns([10, 2])
         with col1:
-            st.image(str(logo_path), width=110)
+            st.image(str(logo_path), width=300)
         with col2:
             st.title("DataMatch Pro")
             st.caption("Match files, bring selected columns, or extract common data into a new Excel file.")
