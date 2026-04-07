@@ -13,7 +13,7 @@ from rapidfuzz import fuzz, process
 # =========================
 st.set_page_config(
     page_title="DataMatch Pro",
-    page_icon="📊",
+    page_icon="logo.png",
     layout="wide"
 )
 
