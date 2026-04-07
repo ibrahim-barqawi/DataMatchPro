@@ -22,7 +22,7 @@ st.set_page_config(
 def show_logo():
     logo_path = Path("logo.png")
     if logo_path.exists():
-        col1, col2 = st.columns([1, 5])
+        col1, col2 = st.columns([3, 7])
         with col1:
             st.image(str(logo_path), width=110)
         with col2:
